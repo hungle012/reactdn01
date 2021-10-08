@@ -9,6 +9,8 @@ import HandleEvent from './HandleEvent/HandleEvent';
 import StateDemo from './StateDemo/StateDemo';
 import ChangeFontSize from './StateDemo/ChangeFontSize';
 import BaiTapChonXe from './BaiTapChonXe/BaiTapChonXe';
+import RenderWithArray from './RenderArray/RenderWithArray';
+import HomePage from './Props/HomePage';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
       {/* <HandleEvent/> */}
       {/* <StateDemo/> */}
       {/* <ChangeFontSize/> */}
-      <BaiTapChonXe/>
+      {/* <BaiTapChonXe/> */}
+      {/* <RenderWithArray/> */}
+      <HomePage/>
     </div>
   );
 }
