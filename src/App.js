@@ -11,6 +11,8 @@ import ChangeFontSize from './StateDemo/ChangeFontSize';
 import BaiTapChonXe from './BaiTapChonXe/BaiTapChonXe';
 import RenderWithArray from './RenderArray/RenderWithArray';
 import HomePage from './Props/HomePage';
+import BTXemChiTiet from './Props/BTXemChiTiet/BTXemChiTiet';
+import CarShop from './Props/CarShop/CarShop';
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
       {/* <ChangeFontSize/> */}
       {/* <BaiTapChonXe/> */}
       {/* <RenderWithArray/> */}
-      <HomePage/>
+      {/* <HomePage/> */}
+      {/* <BTXemChiTiet/> */}
+      <CarShop/>
     </div>
   );
 }
