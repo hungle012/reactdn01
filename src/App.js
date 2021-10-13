@@ -13,6 +13,7 @@ import RenderWithArray from './RenderArray/RenderWithArray';
 import HomePage from './Props/HomePage';
 import BTXemChiTiet from './Props/BTXemChiTiet/BTXemChiTiet';
 import CarShop from './Props/CarShop/CarShop';
+import BTCart from './Props/BTCart/BTCart';
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       {/* <RenderWithArray/> */}
       {/* <HomePage/> */}
       {/* <BTXemChiTiet/> */}
-      <CarShop/>
+      {/* <CarShop/> */}
+      <BTCart/>
     </div>
   );
 }
