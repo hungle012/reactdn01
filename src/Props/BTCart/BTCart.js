@@ -19,10 +19,10 @@ export default class BTCart extends Component {
         // spread operater
         let itemCart = {...itemAdded,"soLuong":1};
         // console.log(itemCart);
-        // copy mảng gior hàng cũ vào mảng mới
+        // copy mảng giỏ hàng cũ vào mảng mới
         let updateCart = [...this.state.gioHang];
 
-        // Tìm sản phẩm được click đã xuất hiện trong mảng giở hàng chưa
+        // Tìm sản phẩm được click đã xuất hiện trong mảng giỏ hàng chưa
         // find(): trả về giá trị của phần tử, findIndex(): trả về index của phần tử
 
         let search = updateCart.find((item) => {
@@ -41,7 +41,7 @@ export default class BTCart extends Component {
     }
     
     xoaGioHang = (itemDelete) => {
-        console.log(itemDelete);
+        // console.log(itemDelete);
         let {gioHang} = this.state;
         // tìm vị trí của sản phẩm cần xoá trong mảng giỏ hàng
         let index = gioHang.findIndex((item) => {
@@ -58,7 +58,7 @@ export default class BTCart extends Component {
     }
 
     tangGiamSL = (maItemSL, soLuong) => {
-        console.log(maItemSL);
+        // console.log(maItemSL);
         let {gioHang} = this.state;
         // tìm sp cần đổi số lượng
         let search = gioHang.find((item) => {
