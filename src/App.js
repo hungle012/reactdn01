@@ -14,6 +14,11 @@ import HomePage from './Props/HomePage';
 import BTXemChiTiet from './Props/BTXemChiTiet/BTXemChiTiet';
 import CarShop from './Props/CarShop/CarShop';
 import BTCart from './Props/BTCart/BTCart';
+import BTGioHang from './DemoRedux/BTGioHang/BTGioHang';
+
+// redux
+import {store} from "./redux/configStore";
+import {Provider} from "react-redux";
 
 function App() {
   return (
@@ -32,7 +37,13 @@ function App() {
       {/* <HomePage/> */}
       {/* <BTXemChiTiet/> */}
       {/* <CarShop/> */}
-      <BTCart/>
+      {/* <BTCart/> */}
+
+      {/* REDUX */}
+      <Provider store={store}>
+        <BTGioHang/>
+      </Provider>
+      
     </div>
   );
 }
