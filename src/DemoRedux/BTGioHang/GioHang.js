@@ -4,33 +4,44 @@ import { connect } from "react-redux";
 
 class GioHang extends Component {
     renderGioHang = () => {
-        return this.props.gioHang.map((item,index) => {
+        return this.props.gioHang.map((item, index) => {
             return <tr key={index}>
-            <td>{item.maSP}</td>
-            <td>{item.tenSP}</td>
-            <td style={{ width: "100px" }}>
-                <img className="img-fluid" src={item.hinhAnh} alt="" />
-            </td>
-            <td>
-                <button className="btn btn-info" >+</button>
-                <span>{item.soLuong}</span>
-                <button className="btn btn-info">-</button>
-            </td>
-            <td>{item.giaBan.toLocaleString()}</td>
-            {/* Những giá trị có thể tính toán từ giá trị thì không cần lưu trữ */}
-            <td>{(item.soLuong * item.giaBan).toLocaleString()}</td>
-            <td>
-                <button className="btn btn-danger" onClick={() => {
-                    const action = {
-                        type:"XOA_SAN_PHAM",
-                        idSP:item.maSP
-                    }
-                    this.props.dispatch(action);
-                }}>Xoá</button>
-            </td>
-        </tr>
+                <td>{item.maSP}</td>
+                <td>{item.tenSP}</td>
+                <td style={{ width: "100px" }}>
+                    <img className="img-fluid" src={item.hinhAnh} alt="" />
+                </td>
+                <td>
+                    <button className="btn btn-info" onClick={() => {
+                        
+                        this.props.tangGiamSL(item.maSP,1)
+
+                    }}>+</button>
+                    <span>{item.soLuong}</span>
+                    <button className="btn btn-info" onClick={() => {
+                        
+                        this.props.tangGiamSL(item.maSP,-1)
+
+                    }}>-</button>
+                </td>
+                <td>{item.giaBan.toLocaleString()}</td>
+                {/* Những giá trị có thể tính toán từ giá trị thì không cần lưu trữ */}
+                <td>{(item.soLuong * item.giaBan).toLocaleString()}</td>
+                <td>
+                    <button className="btn btn-danger" onClick={() => {
+                        // C1 :chỉ dùng khi xoá mapDispatchToProps ở connect
+                        // const action = {
+                        //     type:"XOA_SAN_PHAM",
+                        //     idSP:item.maSP
+                        // }            
+                        // this.props.dispatch(action);
+                        // C2
+                        this.props.xoaSP(item.maSP)
+                    }}>Xoá</button>
+                </td>
+            </tr>
         })
-        
+
     }
     render() {
         console.log(this.props)
@@ -71,15 +82,38 @@ class GioHang extends Component {
         )
     }
 }
+// C2
+//hàm giúp đưa data lên store redux
+const mapDispatchToProps = (dispatch) => {
+    return {
+        xoaSP: (maSP) => {
+            const action = {
+                type: "XOA_SAN_PHAM",
+                idSP: maSP
+            }
+            dispatch(action);
+        },
+        tangGiamSL: (maSP, soLuong) => {
+            // Tạo action
+            const action = {
+                type: "TANG_GIAM_SOLUONG",
+                idSP: maSP,
+                soLuong: soLuong
+            }
+            // đưa action lên reducer
+            dispatch(action);
+        }
+    }
+}
 // Hàm laaysa giá trị state từ store redux
 const mapStateToProps = (rootReducer) => {
     return {
-        gioHang:rootReducer.gioHangStore
+        gioHang: rootReducer.gioHangStore
     }
 }
 
 // Khai báo kết nối từ gioHang đến Store redux
-const ComponentGioHangRedux = connect(mapStateToProps)(GioHang);
+const ComponentGioHangRedux = connect(mapStateToProps, mapDispatchToProps)(GioHang);
 export default ComponentGioHangRedux;
 
 // closure function

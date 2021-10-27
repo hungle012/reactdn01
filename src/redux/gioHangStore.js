@@ -33,6 +33,21 @@ export const gioHangStore = (state = gioHang, action) => {
 
             return mangMoi
         }
+        case "TANG_GIAM_SOLUONG" :{
+            console.log("change SL");
+            // dựa vào action đưa lên từ component gửi lên => tìm sản phẩm đó trong giỏ hàng
+            let spGioHang = state.find((sp) => {
+                return sp.maSP === action.idSP
+            });
+            if (spGioHang) {
+                spGioHang.soLuong += action.soLuong;
+                if (spGioHang.soLuong > 100 || spGioHang.soLuong < 1) {
+                    alert("Số lượng tối thiểu 1, tối đa là 100!");
+                    spGioHang.soLuong -= action.soLuong;
+                }
+            }
+            return [...state];
+        }
         default:
             return state;
     }

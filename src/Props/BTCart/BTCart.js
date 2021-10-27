@@ -79,11 +79,14 @@ export default class BTCart extends Component {
     }
 
     render() {
+        let soLuong = this.state.gioHang.reduce((sL,spGH,index) => {
+            return sL += spGH.soLuong;
+        },0)
         return (
             <div className="container">
                 <div className="row justify-content-end">
                     <div className="col-4 d-flex justify-content-end">
-                        <p>Giỏ hàng (0)</p>
+                        <p data-toggle="modal" data-target="#exampleModal">Giỏ hàng ({soLuong})</p>
                     </div>
                 </div>
                 <ProductList spArr={this.arrPhone} themGioHang={this.themGioHang}/>

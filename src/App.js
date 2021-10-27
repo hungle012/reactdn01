@@ -19,6 +19,9 @@ import BTGioHang from './DemoRedux/BTGioHang/BTGioHang';
 // redux
 import {store} from "./redux/configStore";
 import {Provider} from "react-redux";
+import BTGameXucXac from './DemoRedux/BTGameXucXac/BTGameXucXac';
+import BTQuanLiND from './FormReact/BTQuanLiNguoiDung/BTQuanLiND';
+import Parent from './LifeCyrcle/Parent';
 
 function App() {
   return (
@@ -41,7 +44,12 @@ function App() {
 
       {/* REDUX */}
       <Provider store={store}>
-        <BTGioHang/>
+        {/* <BTGioHang/> */}
+        {/* <BTGameXucXac/> */}
+        <BTQuanLiND/>
+        {/* <Parent/> */}
+
+        
       </Provider>
       
     </div>
