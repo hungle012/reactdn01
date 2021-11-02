@@ -45,8 +45,8 @@ function App() {
       {/* REDUX */}
       <Provider store={store}>
         {/* <BTGioHang/> */}
-        {/* <BTGameXucXac/> */}
-        <BTQuanLiND/>
+        <BTGameXucXac/>
+        {/* <BTQuanLiND/> */}
         {/* <Parent/> */}
 
         
